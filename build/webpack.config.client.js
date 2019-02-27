@@ -68,7 +68,12 @@ if (isDev) {
     plugins: defaultPlugins.concat([
       new webpack.HotModuleReplacementPlugin(),
       new webpack.NoEmitOnErrorsPlugin()
-    ])
+    ]),
+    resolve: {
+      alias: {
+        'model': path.join(__dirname, '../client/model/client-model.js')
+      }
+    }
   })
 } else {
   config = merge(baseConfig, {
@@ -112,6 +117,12 @@ if (isDev) {
       })
     ])
   })
+}
+
+config.resolve = {
+  alias: {
+    'model': path.join(__dirname, '../client/model/client-model.js')
+  }
 }
 
 module.exports = config // 声明一个config的配置,用于对外暴露

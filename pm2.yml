@@ -1,0 +1,7 @@
+apps:
+  - script: ./server/server.js
+    name: vue-tod
+    env_production:
+      NODE_ENV: production
+      HOST: localhost
+      port: 8888
